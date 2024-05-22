@@ -1,3 +1,14 @@
+const socket = io();
+
+socket.on('connect', () => {
+    console.log('Connected to server');
+});
+
+socket.on('update-leaderboard', (data) => {
+    updateLeaderboard(data);
+});
+
+let username;
 const questions = [
     { question: "What is the fourth term of an arithmetic sequence whose first three terms are 2, 5, and 8?", options: ["11", "12", "13", "14"], correct: 0 },
     { question: "If a circle has a radius r, what is the area of the circle?", options: ["πr", "2πr", "πr²", "r²"], correct: 2 },
@@ -17,7 +28,6 @@ let correctAnswers = 0;
 let totalTime = 0;
 let timer;
 const timeLimit = 15;
-let username = "";
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("start-button").addEventListener("click", startQuiz);
@@ -25,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function startQuiz() {
-    username = document.getElementById("username").value.trim();
-    if (username === "") {
-        alert("Please enter your name!");
+    username = document.getElementById("username").value;
+    if (username.trim() === "") {
+        alert("Please enter your name.");
         return;
     }
     document.getElementById("start-screen").style.display = "none";
@@ -41,15 +51,12 @@ function showQuestion() {
 
     questionContainer.innerHTML = `
         <div>${questionData.question}</div>
-        <div class="options-container">
-            ${questionData.options.map((option, index) => `
-                <button class="option" onclick="submitAnswer(${index})">${option}</button>
-            `).join('')}
-        </div>
+        ${questionData.options.map((option, index) => `
+            <button class="option" onclick="submitAnswer(${index})">${option}</button>
+        `).join('')}
     `;
     startTimer();
 }
-
 
 function startTimer() {
     let timeLeft = timeLimit;
@@ -65,6 +72,7 @@ function startTimer() {
 }
 
 function handleTimeout() {
+    document.querySelectorAll(".option").forEach(button => button.disabled = true);
     document.getElementById("result").textContent = "Time's up! Incorrect.";
     document.getElementById("next-btn").style.display = "block";
     totalTime += timeLimit;
@@ -72,8 +80,8 @@ function handleTimeout() {
 
 function submitAnswer(selectedIndex) {
     clearInterval(timer);
-    disableOptions();
     const questionData = questions[currentQuestionIndex];
+    document.querySelectorAll(".option").forEach(button => button.disabled = true);
     if (selectedIndex === questionData.correct) {
         correctAnswers++;
         document.getElementById("result").textContent = "Correct!";
@@ -82,13 +90,6 @@ function submitAnswer(selectedIndex) {
     }
     document.getElementById("next-btn").style.display = "block";
     totalTime += timeLimit - parseInt(document.getElementById("time-left").textContent);
-}
-
-function disableOptions() {
-    const optionButtons = document.querySelectorAll(".option");
-    optionButtons.forEach(button => {
-        button.disabled = true;
-    });
 }
 
 function nextQuestion() {
@@ -114,16 +115,12 @@ function endQuiz() {
 }
 
 function sendResultsToServer() {
-    fetch('/submit-quiz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, correctAnswers, totalTime })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("result-screen").innerHTML += `
-            <h3>Leaderboard</h3>
-            <ul>${data.leaderboard.map(entry => `<li>${entry.username}: ${entry.correctAnswers} correct, ${entry.totalTime} seconds</li>`).join('')}</ul>
-        `;
-    });
+    socket.emit('submit-quiz', { username, correctAnswers, totalTime });
+}
+
+function updateLeaderboard(data) {
+    document.getElementById("result-screen").innerHTML += `
+        <h3>Leaderboard</h3>
+        <ul>${data.leaderboard.map(entry => `<li>${entry.username}: ${entry.correctAnswers} correct, ${entry.totalTime} seconds</li>`).join('')}</ul>
+    `;
 }
