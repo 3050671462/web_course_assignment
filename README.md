@@ -6,11 +6,11 @@
 
 Quiz应用由一系列问题组成，每个问题都有四个选项。用户在规定时间内选择一个答案，或者在时间结束后系统自动提交。用户完成所有问题后，系统将显示他们的得分和总用时，并列出排名前几的用户。此外，用户还可以在测验结束后重新开始。
 
-##Introduction Page Design
+## Introduction Page Design
 
-##About Page Design
+## About Page Design
 
-##Quiz Application Design
+## Quiz Application Design
 
 ## 客户端与服务器通信及事件处理
 
