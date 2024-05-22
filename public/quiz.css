@@ -1,0 +1,256 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4B7C99;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#bigbox {
+    width: 1000px;
+    margin: 20px 0;
+}
+
+#banner {
+    width: 100%;
+    font-size: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#banner img {
+    width: 100%;
+    max-width: 1000px;
+}
+
+nav {
+    background-color: #CCD0D9;
+    width: 100%;
+    max-width: 1000px;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    line-height: 60px;
+    margin: 0 25px;
+    color: #020C16;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #1a9be6;
+}
+
+.page {
+    color: #1a9be6;
+
+}
+
+h2 {
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: #03151F;
+    color: #CCD0D9;
+}
+
+#quiz-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #86aacb;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#timer {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+#result {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: green;
+}
+
+#next-btn {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #86aacb;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#main_left {
+    width: 30%;
+    float: left;
+    background-color: #86aacb;
+}
+
+#main_left img {
+    width: 100%;
+    display: block;
+}
+
+#main_left p {
+    margin: 10px;
+    line-height: 1.5;
+}
+
+#main_left span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#main_right {
+    width: 65%;
+    margin-left: 5%;
+    float: left;
+    background-color: #86aacb;
+}
+
+#main_right img {
+    width: 100%;
+    max-width: 260px;
+    float: right;
+    margin: 30px 0;
+}
+
+#main_right p {
+    margin: 10px;
+    text-indent: 32px;
+    line-height: 1.5;
+}
+
+#picture {
+    display: inline-block;
+    margin: 25px;
+    text-align: center;
+}
+
+#picture img {
+    width: 200px;
+}
+
+#picture p {
+    font-size: 16px;
+    line-height: 60px;
+}
+
+footer {
+    line-height: 60px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CCD0D9;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px 0;
+}
+
+#main_right ul li {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 12px;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+}
+
+#main_right ul li span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    margin-left: 80px;
+}
+
+a{
+    color:rgb(11, 9, 9);
+    }
+a:hover{
+    color:#3b3b3b;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.option {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* 使按钮占满父容器的宽度 */
+    max-width: 500px; /* 设置按钮的最大宽度 */
+    box-sizing: border-box;
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4B7C99;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#start-screen label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0b0b0b;
+}
+
+#start-screen input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#start-screen button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1a9be6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#start-screen button:hover {
+    background-color: #138ac2;
+}
