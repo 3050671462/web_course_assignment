@@ -10,7 +10,7 @@ The Quiz app consists of ten questions, each with four choices. The user selects
 
 ### HTML Design ###
 Navigation Bar: The nav element creates a simple navigation bar with links to the other two pages of the website. The currently active page is highlighted with a different color(Blue).  
-![image](screenshots/nav.png)
+![image](screenshots/nav.png)<br>
 Main Content Area: The div id="main" is the main container for the page content, divided into two sections:  
 Left Section: Contains personal information, including a personal picture, name, university, interests, Email and Github link.  
 Right Section: Contains a brief introduction, personal background, and additional details such as hobbies and career goals.  
@@ -18,7 +18,7 @@ Right Section: Contains a brief introduction, personal background, and additiona
 General Reset: The * selector resets margins and paddings for all elements to ensure consistency across different browsers.  
 Body Styling: Flexbox is used to center the main content and ensure it occupies the full height of the viewport with a consistent background color.  
 Navigation Styling: The navigation bar is styled to have a fixed height, background color, and alignment. Hover effects are added to enhance interactivity.  
-![image](screenshots/nav-css.png)
+![image](screenshots/nav-css.png)<br>
 Main Content Styling: The main content area is styled with padding, background color, and box-sizing to ensure proper spacing and layout. The left and right sections are floated for a side-by-side layout.  
 Section Specific Styling: Both the left and right sections have specific styles for headings, paragraphs, images, and links to ensure a cohesive and visually appealing design.  
 Footer Styling: A footer is included with a consistent background color, font size, and margin to match the overall design.
