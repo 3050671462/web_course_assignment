@@ -10,6 +10,7 @@ The Quiz app consists of ten questions, each with four choices. The user selects
 
 ### HTML Design ###
 Navigation Bar: The nav element creates a simple navigation bar with links to the other two pages of the website. The currently active page is highlighted with a different color(Blue).  
+![image](screenshots/nav.png)
 Main Content Area: The div id="main" is the main container for the page content, divided into two sections:  
 Left Section: Contains personal information, including a personal picture, name, university, interests, Email and Github link.  
 Right Section: Contains a brief introduction, personal background, and additional details such as hobbies and career goals.  
@@ -17,6 +18,7 @@ Right Section: Contains a brief introduction, personal background, and additiona
 General Reset: The * selector resets margins and paddings for all elements to ensure consistency across different browsers.  
 Body Styling: Flexbox is used to center the main content and ensure it occupies the full height of the viewport with a consistent background color.  
 Navigation Styling: The navigation bar is styled to have a fixed height, background color, and alignment. Hover effects are added to enhance interactivity.  
+![image](screenshots/nav-css.png)
 Main Content Styling: The main content area is styled with padding, background color, and box-sizing to ensure proper spacing and layout. The left and right sections are floated for a side-by-side layout.  
 Section Specific Styling: Both the left and right sections have specific styles for headings, paragraphs, images, and links to ensure a cohesive and visually appealing design.  
 Footer Styling: A footer is included with a consistent background color, font size, and margin to match the overall design.
@@ -26,7 +28,8 @@ Footer Styling: A footer is included with a consistent background color, font si
 ### HTML Design ###
 Navigation Bar and Main Content are the same as Introduction Page. But the right section is different.
 Right Section: Provides a detailed description of academic interests and includes a circular display of a series of travel photographs.
-Photo Display: Displays travel photos with navigation buttons and indicators, enhancing visual appeal.
+Photo Display: Displays travel photos with navigation buttons and indicators, enhancing visual appeal.  
+![image](screenshots/slide.png)
 ### CSS Design ###
 Styling: Uses a consistent color scheme of blues and grays, providing a retro style, like a computer interface from the last century. Text styling ensures readability and visual hierarchy.  
 Responsiveness: The layout is designed to be responsive, ensuring it looks good on various devices.
@@ -42,10 +45,12 @@ I implement tramform.js which is responsible for a carousel image slider. It con
 4. Button Click Event Handlers: Event listeners are attached to the left and right buttons. When the right button is clicked, it increments the `index` variable to move to the next image (if available), and then calls the `move` function to update the display accordingly. Similarly, when the left button is clicked, it decrements the `index` to move to the previous image and updates the display.  
 
 5. Automatic Slide Transition: An interval timer (`timer`) is set to automatically click the right button every 1500 milliseconds (1.5 seconds), resulting in a continuous slideshow effect.  
+![image](screenshots/timer.png)
 
 6. Navigation Circle Click Event: Event listeners are added to each navigation circle. When a circle is clicked, its corresponding image is displayed by updating the `index` variable and calling the `move` function.  
 
-7. Mouse Events: When the mouse hovers over the carousel (`content`), the automatic slide transition is paused by clearing the interval timer. Instead, a new interval timer is set to click the right button every 3000 milliseconds (3 seconds), allowing for a slower slideshow while the mouse is over the carousel. When the mouse leaves the carousel, the automatic slide transition resumes with the original interval of 1500 milliseconds.
+7. Mouse Events: When the mouse hovers over the carousel (`content`), the automatic slide transition is paused by clearing the interval timer. Instead, a new interval timer is set to click the right button every 3000 milliseconds (3 seconds), allowing for a slower slideshow while the mouse is over the carousel. When the mouse leaves the carousel, the automatic slide transition resumes with the original interval of 1500 milliseconds.  
+![image](screenshots/mouse.png)
 
 ## Quiz Application Design
 
@@ -70,6 +75,7 @@ After completing the quiz, the result screen shows the user's score, time taken 
 
 ### Quiz and Server Design ###
 Quiz Design:
+![image](screenshots/client.png)
 - Upon loading the quiz page, clients establish a WebSocket connection with the server.
 - Client triggers the `startQuiz` function when the user starts the quiz, sending a `submit-quiz` event to the server, including the username and quiz data.
 - As the user progresses through the quiz, the client triggers the `submitAnswer` function upon answering each question, sending a `submit-answer` event to the server, along with the selected answer index.
@@ -80,6 +86,7 @@ Quiz Design:
 - After updating the leaderboard, the server emits an `update-leaderboard` event to all connected clients, providing the latest leaderboard data.
 - 
 Server Design:
+![image](screenshots/server.png)
 - The server listens for incoming WebSocket connections from clients and logs each connection.
 - Upon connection, the server sets up event listeners to handle quiz-related events, such as `submit-quiz` and `submit-answer`.
 - When the server receives a `submit-quiz` event from a client, it processes the submitted quiz data, including answers and username, in the `submitQuiz` function.
