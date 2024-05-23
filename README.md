@@ -59,7 +59,9 @@ This part contains four files, quiz.html and quiz.css response for the page layo
 ### HTML Design ###
 It includes a start screen where users can input their name before starting the quiz.
 The quiz screen displays questions, options, a timer, and a button to proceed to the next question.
+![image](screenshots/quiz-incorrect.png)<br>
 After completing the quiz, the result screen shows the user's score, time taken and a leaderboard.
+![image](screenshots/leaderboard.png)
 ### CSS Design ###
 1. Options Container:
 - It employs flexbox (`display: flex`) to arrange the options vertically (`flex-direction: column`).
